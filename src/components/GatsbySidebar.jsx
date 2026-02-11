@@ -1,11 +1,22 @@
 import React from 'react';
 import { Settings, ShieldCheck, X } from 'lucide-react';
 
-const GatsbySidebar = ({ isOpen, onClose }) => {
+const GatsbySidebar = ({ isOpen, onClose, selectedTone, onToneChange }) => {
+  
+  // Helper to determine button style based on selection
+  const getButtonStyle = (name) => {
+    const isActive = selectedTone === name;
+    return `w-full rounded-2xl py-3 px-4 mb-3 text-xl transition-all active:scale-95 border-2 
+      ${isActive 
+        ? 'bg-[#E8BF5E] border-[#A88843] text-black shadow-inner font-bold' // Active Style
+        : 'bg-[#BE9C4C] border-[#A88843] text-black shadow-[inset_0_1px_0_rgba(255,255,255,0.2),0_2px_2px_#A88843]' // Inactive
+      }`;
+  };
+
   return (
     <aside 
       className={`
-        fixed md:relative inset-y-0 left-0 z-40
+        fixed md:relative inset-y-0 left-0 z-50
         w-64 h-screen flex flex-col p-4 
         shadow-2xl bg-[#E8BF5E] font-['Luxurious_Script'] 
         border-r-4 border-[#A88843]
@@ -18,14 +29,17 @@ const GatsbySidebar = ({ isOpen, onClose }) => {
       </style>
 
       {/* Mobile Close Button */}
-      <div className="md:hidden absolute top-2 right-2">
-        <button onClick={onClose} className="p-2 text-black hover:bg-[#BE9C4C] rounded-full active:scale-95">
+      <div className="md:hidden absolute top-4 right-4 z-50">
+        <button 
+          onClick={onClose} 
+          className="p-2 text-black bg-[#BE9C4C] border border-[#A88843] rounded-full active:scale-95 shadow-md"
+        >
             <X size={24} />
         </button>
       </div>
 
       {/* Top Section */}
-      <div className="mb-6 mt-8 md:mt-2">
+      <div className="mb-6 mt-16 md:mt-2">
         <h3 className="text-center text-sm mb-1 opacity-80 tracking-widest uppercase text-black text-[1.1rem]">
           Domain Expertise
         </h3>
@@ -34,16 +48,17 @@ const GatsbySidebar = ({ isOpen, onClose }) => {
         </button>
       </div>
 
-      {/* Middle Section */}
+      {/* Middle Section: FUNCTIONAL TONE SWITCHER */}
       <div className="mb-6">
         <h3 className="text-center text-sm mb-1 opacity-80 tracking-widest uppercase text-black text-[1.1rem]">
-          Communication Tone
+          sessio
         </h3>
         <div className="space-y-1">
           {['Jay Gatsby', 'Daisy Buchanan', 'Nick Carraway'].map((name) => (
             <button 
               key={name}
-              className="w-full rounded-2xl py-3 px-4 mb-3 text-xl transition-all active:scale-95 bg-[#BE9C4C] border-2 border-[#A88843] text-black shadow-[inset_0_1px_0_rgba(255,255,255,0.2),0_2px_2px_#A88843]"
+              onClick={() => onToneChange(name)}
+              className={getButtonStyle(name)}
             >
               {name}
             </button>
@@ -51,12 +66,16 @@ const GatsbySidebar = ({ isOpen, onClose }) => {
         </div>
       </div>
 
-      {/* Bottom Section */}
+      {/* Bottom Section: Reset Chat */}
       <div className="mb-6">
         <h3 className="text-center text-sm mb-1 opacity-80 tracking-widest uppercase text-black text-[1.1rem]">
           Session Control
         </h3>
-        <button className="w-full rounded-2xl py-3 px-4 mb-3 text-xl transition-all active:scale-95 bg-[#BE9C4C] border-2 border-[#A88843] text-black shadow-[inset_0_1px_0_rgba(255,255,255,0.2),0_2px_2px_#A88843]">
+        {/* We can make this functional later, purely visual for now */}
+        <button 
+          className="w-full rounded-2xl py-3 px-4 mb-3 text-xl transition-all active:scale-95 bg-[#BE9C4C] border-2 border-[#A88843] text-black shadow-[inset_0_1px_0_rgba(255,255,255,0.2),0_2px_2px_#A88843]"
+          onClick={() => window.location.reload()} 
+        >
           Clear Session
         </button>
       </div>
