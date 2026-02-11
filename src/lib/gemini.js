@@ -1,7 +1,7 @@
 import { GoogleGenerativeAI } from '@google/generative-ai';
 import { getSystemInstruction } from './personas';
 
-const API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
+const API_KEY = "AIzaSyCi82x-IK6_BDEBbnPvKtyikRB-Mnj3jJw";
 
 /**
  * Send a message to the Gemini API in the voice of the selected character.
