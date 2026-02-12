@@ -2,39 +2,39 @@ import React from 'react';
 import { Settings, ShieldCheck, X } from 'lucide-react';
 
 const GatsbySidebar = ({ isOpen, onClose, selectedTone, onToneChange }) => {
-  
+
   // Helper to determine button style based on selection
   const getButtonStyle = (name) => {
     const isActive = selectedTone === name;
     return `w-full rounded-2xl py-3 px-4 mb-3 text-xl transition-all active:scale-95 border-2 
-      ${isActive 
+      ${isActive
         ? 'bg-[#E8BF5E] border-[#A88843] text-black shadow-inner font-bold' // Active Style
         : 'bg-[#BE9C4C] border-[#A88843] text-black shadow-[inset_0_1px_0_rgba(255,255,255,0.2),0_2px_2px_#A88843]' // Inactive
       }`;
   };
 
   return (
-    <aside 
+    <aside
       className={`
         fixed md:relative inset-y-0 left-0 z-50
         w-64 h-screen flex flex-col p-4 
-        shadow-2xl bg-[#E8BF5E] font-['Luxurious_Script'] 
+        shadow-2xl bg-[#E8BF5E] font-['MonteCarlo'] 
         border-r-4 border-[#A88843]
         transition-transform duration-300 ease-in-out
         ${isOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'}
       `}
     >
       <style>
-        {`@import url('https://fonts.googleapis.com/css2?family=Luxurious+Script&display=swap');`}
+        {`@import url('https://fonts.googleapis.com/css2?family=MonteCarlo&display=swap');`}
       </style>
 
       {/* Mobile Close Button */}
       <div className="md:hidden absolute top-4 right-4 z-50">
-        <button 
-          onClick={onClose} 
+        <button
+          onClick={onClose}
           className="p-2 text-black bg-[#BE9C4C] border border-[#A88843] rounded-full active:scale-95 shadow-md"
         >
-            <X size={24} />
+          <X size={24} />
         </button>
       </div>
 
@@ -55,7 +55,7 @@ const GatsbySidebar = ({ isOpen, onClose, selectedTone, onToneChange }) => {
         </h3>
         <div className="space-y-1">
           {['Jay Gatsby', 'Daisy Buchanan', 'Nick Carraway'].map((name) => (
-            <button 
+            <button
               key={name}
               onClick={() => onToneChange(name)}
               className={getButtonStyle(name)}
@@ -72,9 +72,9 @@ const GatsbySidebar = ({ isOpen, onClose, selectedTone, onToneChange }) => {
           Session Control
         </h3>
         {/* We can make this functional later, purely visual for now */}
-        <button 
+        <button
           className="w-full rounded-2xl py-3 px-4 mb-3 text-xl transition-all active:scale-95 bg-[#BE9C4C] border-2 border-[#A88843] text-black shadow-[inset_0_1px_0_rgba(255,255,255,0.2),0_2px_2px_#A88843]"
-          onClick={() => window.location.reload()} 
+          onClick={() => window.location.reload()}
         >
           Clear Session
         </button>

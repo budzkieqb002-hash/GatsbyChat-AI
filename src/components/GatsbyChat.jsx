@@ -78,7 +78,7 @@ const GatsbyChat = ({ onOpenSidebar, selectedTone }) => {
 
   return (
     <div
-      className="flex-1 h-screen flex flex-col relative overflow-hidden bg-black font-['Luxurious_Script'] text-[#BB933F]"
+      className="flex-1 h-screen flex flex-col relative overflow-hidden bg-black font-['MonteCarlo'] text-[#BB933F]"
       style={{
         backgroundImage: bgImage,
         backgroundPosition: 'center',
@@ -87,7 +87,7 @@ const GatsbyChat = ({ onOpenSidebar, selectedTone }) => {
       }}
     >
       <style>
-        {`@import url('https://fonts.googleapis.com/css2?family=Luxurious+Script&display=swap');`}
+        {`@import url('https://fonts.googleapis.com/css2?family=MonteCarlo&display=swap');`}
       </style>
 
       {/* MOBILE MENU BUTTON */}
@@ -161,7 +161,7 @@ const GatsbyChat = ({ onOpenSidebar, selectedTone }) => {
               onChange={(e) => setInputValue(e.target.value)}
               onKeyDown={handleKeyDown}
               placeholder={`Message ${selectedTone}...`}
-              className="w-full h-full bg-transparent border-none outline-none text-2xl md:text-3xl placeholder-black/60 text-black resize-none pt-1 pr-16 font-['Luxurious_Script']"
+              className="w-full h-full bg-transparent border-none outline-none text-2xl md:text-3xl placeholder-black/60 text-black resize-none pt-1 pr-16 font-['MonteCarlo']"
             />
 
             {/* Left Icons */}

@@ -10,7 +10,7 @@ const ArtDecoInput = ({ type, name, placeholder, value, onChange }) => (
         value={value}
         onChange={onChange}
         required
-        className="w-full bg-black/60 border-b-2 border-[#BB933F] text-[#E8BF5E] placeholder-[#BB933F]/70 text-2xl py-2 px-4 outline-none focus:bg-black/80 focus:border-[#E8BF5E] transition-all font-['Luxurious_Script'] mb-4 rounded-t-lg"
+        className="w-full bg-black/60 border-b-2 border-[#BB933F] text-[#E8BF5E] placeholder-[#BB933F]/70 text-2xl py-2 px-4 outline-none focus:bg-black/80 focus:border-[#E8BF5E] transition-all font-['MonteCarlo'] mb-4 rounded-t-lg"
     />
 );
 
@@ -40,11 +40,11 @@ const GatsbyHome = ({ onLogin }) => {
     };
 
     return (
-        <div className="flex h-screen w-full bg-black overflow-hidden font-['Luxurious_Script']">
+        <div className="flex h-screen w-full bg-black overflow-hidden font-['MonteCarlo']">
 
             {/* Font Injection */}
             <style>
-                {`@import url('https://fonts.googleapis.com/css2?family=Luxurious+Script&display=swap');`}
+                {`@import url('https://fonts.googleapis.com/css2?family=MonteCarlo&display=swap');`}
             </style>
 
             {/* --- SIDEBAR (Static for aesthetics) --- */}
